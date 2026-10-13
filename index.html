@@ -6,13 +6,11 @@
     <title>Akok Mayol Akok | Cybersecurity Student Portfolio</title>
     <meta name="description" content="Explore the portfolio, learning journey, cybersecurity interests, programming projects, and professional goals of Akok Mayol Akok, a Cybersecurity student at the University of Juba." />
     
-    <!-- Open Graph / Facebook / LinkedIn -->
+    <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Akok Mayol Akok | Cybersecurity Student Portfolio" />
     <meta property="og:description" content="Explore the portfolio, learning journey, cybersecurity interests, programming projects, and professional goals of Akok Mayol Akok, a Cybersecurity student at the University of Juba." />
     <meta property="og:site_name" content="Akok Mayol Portfolio" />
-    
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Akok Mayol Akok | Cybersecurity Student Portfolio" />
     <meta name="twitter:description" content="Explore the portfolio, learning journey, cybersecurity interests, programming projects, and professional goals of Akok Mayol Akok, a Cybersecurity student at the University of Juba." />
@@ -22,10 +20,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <!-- Favicon SVG: Circuit Shield -->
+    <!-- Favicon: Circuit Shield -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231769FF'><path d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 3.2c3.08 0 5.8 1.83 6.84 4.67l-2.02.74c-.75-2.05-2.7-3.41-4.82-3.41s-4.07 1.36-4.82 3.41l-2.02-.74C6.2 7.03 8.92 5.2 12 5.2zm0 6.8a2 2 0 100-4 2 2 0 000 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Standalone Stylesheet (No build step) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,9 +56,1093 @@
     }
     </script>
   </head>
-  <body class="bg-[#F4F8FF] text-[#14233B] dark:bg-[#071324] dark:text-[#E8F1FF] antialiased selection:bg-[#1769FF] selection:text-white transition-colors duration-200">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body>
+    <!-- =========================================================================
+         SITE HEADER / NAVBAR (Top Bar Contract: 3 Zones)
+         ========================================================================= -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Zone 1: Wordmark & Logo -->
+        <a href="#/home" class="brand-link" aria-label="Akok Mayol - Home">
+          <div class="brand-icon">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3L6 7v8c0 7.5 4.3 12.3 10 14 5.7-1.7 10-6.5 10-14V7L16 3z" />
+              <path d="M16 11v5" stroke="#35B6FF" stroke-width="2" />
+              <path d="M12 16h8" stroke="#35B6FF" stroke-width="2" />
+              <circle cx="16" cy="11" r="1.5" fill="#35B6FF" stroke="none" />
+              <circle cx="12" cy="16" r="1.5" fill="#35B6FF" stroke="none" />
+              <circle cx="20" cy="16" r="1.5" fill="#35B6FF" stroke="none" />
+              <path d="M16 16v5" stroke="#35B6FF" stroke-width="2" />
+              <circle cx="16" cy="21" r="1.5" fill="#35B6FF" stroke="none" />
+            </svg>
+          </div>
+          <span class="brand-text">AKOK MAYOL</span>
+        </a>
+
+        <!-- Zone 2: Desktop Nav Links -->
+        <nav class="nav-desktop" aria-label="Main Navigation">
+          <a href="#/home" class="nav-link" data-route="home">Home</a>
+          <a href="#/about" class="nav-link" data-route="about">About</a>
+          <a href="#/projects" class="nav-link" data-route="projects">Projects</a>
+          <a href="#/skills" class="nav-link" data-route="skills">Skills</a>
+          <a href="#/contact" class="nav-link" data-route="contact">Contact</a>
+        </nav>
+
+        <!-- Zone 3: CTA Button & Theme Toggle -->
+        <div class="header-actions">
+          <button type="button" id="theme-toggle-btn" class="btn-theme" aria-label="Toggle theme" title="Toggle theme">
+            <!-- Sun Icon (Dark Mode active) -->
+            <svg id="theme-sun-icon" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon Icon (Light Mode active) -->
+            <svg id="theme-moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1769FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <a href="#/contact" class="btn-primary" style="display:none;" id="desktop-cta-btn">
+            <span>Let's Connect</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button type="button" id="menu-toggle-btn" class="btn-menu" aria-label="Toggle mobile menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="#/home" class="mobile-nav-link" data-route="home">Home</a></li>
+          <li><a href="#/about" class="mobile-nav-link" data-route="about">About</a></li>
+          <li><a href="#/projects" class="mobile-nav-link" data-route="projects">Projects</a></li>
+          <li><a href="#/skills" class="mobile-nav-link" data-route="skills">Skills</a></li>
+          <li><a href="#/contact" class="mobile-nav-link" data-route="contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- =========================================================================
+         MAIN APPLICATION VIEWS (HASH ROUTED)
+         ========================================================================= -->
+    <main>
+      <!-- =======================================================================
+           VIEW 1: HOME PAGE
+           ======================================================================= -->
+      <div id="page-home" class="page-view active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="container">
+            <div class="hero-grid">
+              <!-- Left Column: Typography & CTAs -->
+              <div class="hero-content">
+                <div class="hero-kicker-row">
+                  <span class="badge-student">CYBERSECURITY STUDENT</span>
+                  <span style="color: var(--secondary-text)">·</span>
+                  <span class="badge-availability">
+                    <span class="pulse-dot"></span>
+                    Open to Learning Opportunities
+                  </span>
+                </div>
+
+                <h1 class="hero-title">
+                  <span class="gradient-text">Securing the Digital World</span>, One Step at a Time.
+                </h1>
+
+                <p class="hero-description">
+                  I am a Cybersecurity student at the <strong style="color: var(--main-text)">University of Juba</strong>, passionate about protecting digital systems, understanding cyber threats, and building a safer digital world through continuous learning and responsible technology.
+                </p>
+
+                <div class="hero-cta-group">
+                  <a href="#/projects" class="btn-primary">
+                    <span>Explore My Work</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+
+                  <a href="#/about" class="btn-secondary">About Me</a>
+
+                  <a href="#/contact" class="nav-link" style="color: var(--royal-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <span>Get in Touch</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: Interactive Cybersecurity Visual -->
+              <div class="hero-visual-container">
+                <div class="hero-visual-bg-grid"></div>
+
+                <!-- SVG Circuit Radar Lines -->
+                <svg viewBox="0 0 400 400" class="hero-visual-svg">
+                  <defs>
+                    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1769FF" stop-opacity="0.8" />
+                      <stop offset="100%" stop-color="#35B6FF" stop-opacity="0.8" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="200" cy="200" r="140" fill="none" stroke="#1769FF" stroke-width="1" stroke-dasharray="3 6" opacity="0.35" />
+                  <circle cx="200" cy="200" r="95" fill="none" stroke="#35B6FF" stroke-width="1" opacity="0.3" />
+                  <line x1="80" y1="90" x2="200" y2="200" stroke="url(#cyber-grad)" stroke-width="1.5" stroke-dasharray="4 2" />
+                  <line x1="320" y1="80" x2="200" y2="200" stroke="url(#cyber-grad)" stroke-width="1.5" stroke-dasharray="4 2" />
+                  <line x1="330" y1="280" x2="200" y2="200" stroke="url(#cyber-grad)" stroke-width="1.5" stroke-dasharray="4 2" />
+                  <line x1="70" y1="290" x2="200" y2="200" stroke="url(#cyber-grad)" stroke-width="1.5" stroke-dasharray="4 2" />
+                </svg>
+
+                <!-- Center Shield Crest -->
+                <div class="hero-visual-crest-wrapper">
+                  <img src="assets/images/cybersecurity_crest.jpg" alt="Cybersecurity Shield Crest" class="hero-visual-crest-img" />
+                  <div class="crest-caption">
+                    <p class="crest-caption-sub">Defensive Computing</p>
+                    <p class="crest-caption-main">University of Juba</p>
+                  </div>
+                </div>
+
+                <!-- Orbiting Nodes -->
+                <div class="orbit-node" style="left: 20%; top: 22.5%;">
+                  <button type="button" class="node-btn" aria-label="Host Defense">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </button>
+                  <span class="node-tooltip">Host Defense</span>
+                </div>
+
+                <div class="orbit-node" style="left: 80%; top: 20%;">
+                  <button type="button" class="node-btn" aria-label="Cryptographic Integrity">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </button>
+                  <span class="node-tooltip">Cryptographic Integrity</span>
+                </div>
+
+                <div class="orbit-node" style="left: 82.5%; top: 70%;">
+                  <button type="button" class="node-btn" aria-label="Traffic Analysis">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </button>
+                  <span class="node-tooltip">Traffic Analysis</span>
+                </div>
+
+                <div class="orbit-node" style="left: 17.5%; top: 72.5%;">
+                  <button type="button" class="node-btn" aria-label="Defensive Automation">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+                  </button>
+                  <span class="node-tooltip">Defensive Automation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Highlights Row -->
+            <div class="highlights-row">
+              <div class="highlight-card">
+                <div class="highlight-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div>
+                  <h4 class="highlight-title">Cybersecurity Student</h4>
+                  <p class="highlight-sub">University of Juba, South Sudan</p>
+                </div>
+              </div>
+
+              <div class="highlight-card">
+                <div class="highlight-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div>
+                  <h4 class="highlight-title">Python & Programming</h4>
+                  <p class="highlight-sub">Security scripting & automation</p>
+                </div>
+              </div>
+
+              <div class="highlight-card">
+                <div class="highlight-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M12 12v4"/></svg>
+                </div>
+                <div>
+                  <h4 class="highlight-title">Network Security</h4>
+                  <p class="highlight-sub">Traffic analysis & defensive labs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="highlight-card" style="padding: 2.25rem; display: block;">
+              <span class="section-kicker">Philosophy & Focus</span>
+              <h2 class="section-title" style="margin: 0.5rem 0 1rem;">Driven by Curiosity. Focused on Security.</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem;">
+                In an increasingly interconnected landscape, safeguarding information assets requires more than technical tools—it demands a disciplined mindset. Learning how computer systems operate at the protocol and code level enables us to responsibly recognize vulnerabilities before they can be exploited.
+              </p>
+              <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                Throughout my academic studies at the University of Juba, I combine classroom theory with hands-on lab experiments. I believe in steady academic growth, structured problem-solving, collaboration with peers, and holding security research to the highest ethical standard.
+              </p>
+              <a href="#/about" class="btn-secondary" style="display: inline-flex;">
+                <span>More About Me</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="section-header-row">
+              <div>
+                <span class="section-kicker">Practical Application</span>
+                <h2 class="section-title">Learning Through Practice.</h2>
+                <p class="section-subtitle">Academic projects and defensive laboratory concepts demonstrating security fundamentals, safe hashing, network monitoring, and secure web practices.</p>
+              </div>
+              <a href="#/projects" class="nav-link" style="color: var(--royal-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <span>View All Projects</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <div id="home-featured-projects-grid" class="projects-grid"></div>
+          </div>
+        </section>
+
+        <!-- Skills Preview Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="section-header-row">
+              <div>
+                <span class="section-kicker">Knowledge Domains</span>
+                <h2 class="section-title">Core Competencies & Foundational Skills</h2>
+                <p class="section-subtitle">Grounded in university coursework and continuous self-directed learning. Clearly categorized with honest progress indications.</p>
+              </div>
+              <a href="#/skills" class="nav-link" style="color: var(--royal-blue); font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <span>View Full Skills Dashboard</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="values-grid">
+              <div class="value-card">
+                <span class="badge-student" style="font-size: 0.7rem;">Foundational</span>
+                <h4 style="font-size: 0.95rem; margin: 0.4rem 0;">Cybersecurity Fundamentals</h4>
+                <p style="font-size: 0.75rem;">CIA triad, threat models, and defense-in-depth architecture.</p>
+              </div>
+              <div class="value-card">
+                <span class="badge-student" style="font-size: 0.7rem;">Foundational</span>
+                <h4 style="font-size: 0.95rem; margin: 0.4rem 0;">Network Security</h4>
+                <p style="font-size: 0.75rem;">OSI layers, TCP/IP inspection, packet flows, and subnetting.</p>
+              </div>
+              <div class="value-card">
+                <span class="badge-student" style="font-size: 0.7rem;">Practicing</span>
+                <h4 style="font-size: 0.95rem; margin: 0.4rem 0;">Python Programming</h4>
+                <p style="font-size: 0.75rem;">Automating defensive audits, file hashing, and data parsing.</p>
+              </div>
+              <div class="value-card">
+                <span class="badge-student" style="font-size: 0.7rem;">Practicing</span>
+                <h4 style="font-size: 0.95rem; margin: 0.4rem 0;">Linux Fundamentals</h4>
+                <p style="font-size: 0.75rem;">CLI administration, permission models, and process auditing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Personal Statement Banner -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="banner-navy">
+              <span class="badge-student" style="color: var(--electric-blue);">CORE CONVICTION</span>
+              <blockquote class="banner-quote">
+                “Every expert starts as a learner. Every secure system begins with understanding.”
+              </blockquote>
+              <p class="banner-sub">
+                Dedicated to continuous study, laboratory verification, and building strong ethical foundations for the South Sudanese technology landscape.
+              </p>
+              <a href="#/about" class="btn-primary" style="background: #fff; color: #0B1F3A;">
+                <span>Read My Full Story</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1769FF" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- =======================================================================
+           VIEW 2: ABOUT PAGE
+           ======================================================================= -->
+      <div id="page-about" class="page-view">
+        <section class="section">
+          <div class="container">
+            <div class="about-hero-grid">
+              <div>
+                <span class="section-kicker">Biography & Background</span>
+                <h1 class="section-title" style="margin: 0.5rem 0 0.5rem; font-size: 2.5rem;">About Me</h1>
+                <p style="font-size: 1.15rem; color: var(--secondary-text); margin-bottom: 1.5rem;">The person behind the passion for cybersecurity.</p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; line-height: 1.7; font-size: 1rem;">
+                  <p>
+                    My name is <strong style="color: var(--main-text)">Akok Mayol Akok</strong>. I am a dedicated Cybersecurity student currently pursuing my undergraduate degree at the <strong style="color: var(--main-text)">University of Juba</strong> in South Sudan.
+                  </p>
+                  <p>
+                    From an early fascination with how digital networks connect communities to discovering the vulnerabilities that can undermine them, I have directed my academic focus toward understanding and protecting computer infrastructure. I believe responsible technology and resilient cybersecurity are vital cornerstones for South Sudan’s emerging digital future.
+                  </p>
+                  <p>
+                    My daily routine blends university curriculum with hands-on lab experimentation: analyzing packet captures, writing Python utilities for file integrity auditing, configuring virtualized Linux environments, and practicing secure web development standards.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Student Profile Card -->
+              <div>
+                <div class="about-id-card">
+                  <img src="assets/images/akok_mayol_avatar.jpg" alt="Akok Mayol Akok" class="about-avatar-img" />
+                  <div style="margin-top: 1rem; text-align: center;">
+                    <h3 style="font-size: 1.1rem; font-weight: 800;">Akok Mayol Akok</h3>
+                    <p style="font-size: 0.8rem; color: var(--secondary-text);">Cybersecurity Student · University of Juba</p>
+                  </div>
+                  <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: 0.75rem;">
+                    <span>Location</span>
+                    <span style="font-weight: 600; color: var(--main-text);">Juba, South Sudan</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Academic Background Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="highlight-card" style="padding: 2.25rem; display: block;">
+              <span class="section-kicker">Higher Education</span>
+              <h2 class="section-title" style="margin: 0.5rem 0 1rem;">Academic Background</h2>
+              <div style="border-left: 2px solid var(--royal-blue); padding-left: 1.25rem; margin-top: 1rem;">
+                <h3 style="font-size: 1.2rem; font-weight: 800;">University of Juba</h3>
+                <p style="font-size: 0.9rem; color: var(--royal-blue); font-weight: 600;">Department of Cybersecurity · Faculty of Computer Science</p>
+                <div style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+                  <p><strong style="color: var(--main-text)">Status:</strong> Enrolled Cybersecurity Student</p>
+                  <p><strong style="color: var(--main-text)">Location:</strong> Juba, South Sudan</p>
+                  <p><strong style="color: var(--main-text)">Core Curriculum:</strong> Computer Architecture, Information Security Principles, Network Protocols, Operating Systems, Python Programming, Database Management, and Defensive Cryptography.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Learning Journey Timeline -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Milestones</span>
+              <h2 class="section-title">Learning Journey</h2>
+              <p class="section-subtitle">A structured path charting key developmental milestones and academic lab experiments without fabricated work experience.</p>
+            </div>
+
+            <div class="projects-grid">
+              <div class="timeline-step">
+                <span class="badge-student">STEP 01</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Computer Systems & Security Foundations</h4>
+                <p style="font-size: 0.85rem;">Understanding hardware architectures, operating systems, and the core CIA security triad.</p>
+              </div>
+              <div class="timeline-step">
+                <span class="badge-student">STEP 02</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Python Programming & Scripting Logic</h4>
+                <p style="font-size: 0.85rem;">Learning syntax, standard libraries (hashlib, socket), and automating defensive verification tasks.</p>
+              </div>
+              <div class="timeline-step">
+                <span class="badge-student">STEP 03</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Networking & Systems Administration</h4>
+                <p style="font-size: 0.85rem;">Mastering TCP/IP protocols, IPv4 subnetting, Linux command-line workflows, and Wireshark captures.</p>
+              </div>
+              <div class="timeline-step">
+                <span class="badge-student">STEP 04</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Authorized Lab Experiments & Defense</h4>
+                <p style="font-size: 0.85rem;">Studying vulnerability concepts and defensive firewall rules strictly in isolated virtual machines.</p>
+              </div>
+              <div class="timeline-step">
+                <span class="badge-student">STEP 05</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Secure Web Development</h4>
+                <p style="font-size: 0.85rem;">Building clean, accessible interfaces with semantic HTML, CSS, JavaScript, and OWASP defense principles.</p>
+              </div>
+              <div class="timeline-step">
+                <span class="badge-student">STEP 06</span>
+                <h4 style="font-size: 1rem; margin: 0.5rem 0;">Continuous Study & Certifications</h4>
+                <p style="font-size: 0.85rem;">Engaging in academic workshops and preparing for recognized industry credentials (CompTIA Security+).</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Guiding Principles</span>
+              <h2 class="section-title">Values That Guide My Work</h2>
+            </div>
+            <div class="values-grid">
+              <div class="value-card">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.4rem;">Integrity</h4>
+                <p style="font-size: 0.85rem;">Upholding strict ethical standards. Security skills must only be deployed defensively, constructively, and with explicit authorization.</p>
+              </div>
+              <div class="value-card">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.4rem;">Continuous Learning</h4>
+                <p style="font-size: 0.85rem;">Approaching technology with curiosity and humility. The threat landscape evolves continuously, requiring sustained study.</p>
+              </div>
+              <div class="value-card">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.4rem;">Responsibility</h4>
+                <p style="font-size: 0.85rem;">Recognizing the societal impact of digital systems. Protecting data means protecting people and their trust in technology.</p>
+              </div>
+              <div class="value-card">
+                <h4 style="font-size: 1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.4rem;">Collaboration</h4>
+                <p style="font-size: 0.85rem;">Cybersecurity is a collective defense discipline. Sharing knowledge and learning through mutual peer feedback makes everyone safer.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Career Goals Section -->
+        <section class="section" style="padding-top: 0;">
+          <div class="container">
+            <div class="highlight-card" style="padding: 2.25rem; display: block; background: linear-gradient(135deg, #0B1F3A, #071324); color: #fff; border-color: #1E293B;">
+              <span class="section-kicker" style="color: var(--electric-blue);">ASPIRATION</span>
+              <h2 style="font-size: 1.75rem; color: #fff; margin: 0.5rem 0 1rem;">Career Objective & Vision</h2>
+              <blockquote style="font-size: 1.15rem; font-style: italic; border-left: 2px solid var(--royal-blue); padding-left: 1rem; margin-bottom: 1rem; color: #e2e8f0;">
+                “My goal is to develop strong practical skills in cybersecurity, contribute to protecting digital infrastructure, and grow into a professional cybersecurity specialist.”
+              </blockquote>
+              <p style="font-size: 0.95rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">
+                I aspire to contribute to public and private sector organizations, gain hands-on apprenticeship or internship experience, and actively build defense capabilities that empower individuals and businesses in South Sudan to adopt digital technologies securely.
+              </p>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#/projects" class="btn-primary">View My Projects</a>
+                <a href="#/contact" class="btn-secondary" style="background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2);">Contact Me</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- =======================================================================
+           VIEW 3: PROJECTS PAGE
+           ======================================================================= -->
+      <div id="page-projects" class="page-view">
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Portfolio Showcase</span>
+              <h1 class="section-title" style="font-size: 2.5rem;">Projects & Laboratory Studies</h1>
+              <p class="section-subtitle">Hands-on learning projects, virtualized laboratory experiments, and educational software created during my cybersecurity studies at the University of Juba.</p>
+            </div>
+
+            <!-- Defensive Academic Disclaimer -->
+            <div class="highlight-card" style="margin-bottom: 2rem; border-color: rgba(23, 105, 255, 0.3); background-color: var(--light-surface);">
+              <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1769FF" stroke-width="2" style="flex-shrink: 0; margin-top: 0.1rem;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p style="font-size: 0.85rem; line-height: 1.6;">
+                  <strong style="color: var(--main-text);">Responsible Educational Mandate:</strong> All projects presented here are demonstration concepts and defensive experiments developed strictly for educational comprehension, local verification, and authorized lab studies. No unauthorized penetration testing or destructive software is hosted or endorsed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Filter Toolbar -->
+            <div class="toolbar-container">
+              <div class="segmented-filters">
+                <button type="button" class="filter-btn active" data-category="all">All Projects</button>
+                <button type="button" class="filter-btn" data-category="python">Python Scripting</button>
+                <button type="button" class="filter-btn" data-category="networking">Networking & Labs</button>
+                <button type="button" class="filter-btn" data-category="web-security">Web Security</button>
+                <button type="button" class="filter-btn" data-category="tools">Educational Tools</button>
+              </div>
+
+              <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="project-search-input" class="search-input" placeholder="Search by topic or tech..." />
+              </div>
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="projects-empty-state" style="display: none; text-align: center; padding: 4rem 1rem; border: 1px dashed var(--border-color); border-radius: 0.75rem;">
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.35rem;">No matching projects found</h3>
+              <p style="font-size: 0.85rem;">Try adjusting your search query or choosing another category filter.</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="all-projects-grid" class="projects-grid"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- =======================================================================
+           VIEW 4: SKILLS PAGE
+           ======================================================================= -->
+      <div id="page-skills" class="page-view">
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Competency Matrix</span>
+              <h1 class="section-title" style="font-size: 2.5rem;">Skills & Educational Progress</h1>
+              <p class="section-subtitle">A transparent overview of academic coursework, programming capabilities, networking foundations, and active developmental milestones.</p>
+            </div>
+
+            <!-- Authentic Disclaimer -->
+            <div class="highlight-card" style="margin-bottom: 2.5rem; background-color: var(--light-surface);">
+              <p style="font-size: 0.85rem; line-height: 1.6;">
+                <strong style="color: var(--main-text);">Authentic Assessment:</strong> In accordance with academic integrity, this portfolio rejects arbitrary percentage sliders or fabricated proficiency scores. Skills are classified by authentic student status: <em>Currently Learning</em>, <em>Foundational Knowledge</em>, <em>Practicing</em>, and <em>Familiar</em>.
+              </p>
+            </div>
+
+            <!-- Categorized Skills Grid -->
+            <div class="skills-grid">
+              <!-- Category 1: Cybersecurity -->
+              <div class="skill-category-card">
+                <div class="skill-cat-header">
+                  <div class="skill-cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="skill-cat-title">Cybersecurity Fundamentals</h3>
+                    <p style="font-size: 0.75rem;">Core defensive principles and threat models.</p>
+                  </div>
+                </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Security Principles (CIA Triad)</h4>
+                      <p class="skill-desc">Confidentiality, Integrity, Availability modeling.</p>
+                    </div>
+                    <span class="skill-status-badge status-foundational">Foundational</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Threat Awareness & Vectors</h4>
+                      <p class="skill-desc">Malware types, MITM, social engineering.</p>
+                    </div>
+                    <span class="skill-status-badge status-learning">Learning</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Authentication Fundamentals</h4>
+                      <p class="skill-desc">Password hashing, salt, MFA, session hygiene.</p>
+                    </div>
+                    <span class="skill-status-badge status-foundational">Foundational</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Security Hygiene & Awareness</h4>
+                      <p class="skill-desc">Phishing prevention, update schedules, device encryption.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 2: Programming -->
+              <div class="skill-category-card">
+                <div class="skill-cat-header">
+                  <div class="skill-cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="skill-cat-title">Programming & Scripting</h3>
+                    <p style="font-size: 0.75rem;">Writing automation scripts and log parsers.</p>
+                  </div>
+                </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Python Fundamentals</h4>
+                      <p class="skill-desc">Syntax, types, conditionals, loops, functions.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Data Structures</h4>
+                      <p class="skill-desc">Lists, dictionaries, and sets for security log filtering.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">File Operations & Cryptography</h4>
+                      <p class="skill-desc">Reading files safely, JSON, hashlib module.</p>
+                    </div>
+                    <span class="skill-status-badge status-learning">Learning</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Socket Programming Basics</h4>
+                      <p class="skill-desc">Network socket connections and timeout handling.</p>
+                    </div>
+                    <span class="skill-status-badge status-learning">Learning</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 3: Networking & Systems -->
+              <div class="skill-category-card">
+                <div class="skill-cat-header">
+                  <div class="skill-cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="9" y="16" width="6" height="6" rx="1"/><path d="M5 8v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8M12 12v4"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="skill-cat-title">Networking & Systems</h3>
+                    <p style="font-size: 0.75rem;">Protocol architectures and Linux operation.</p>
+                  </div>
+                </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">OSI & TCP/IP Reference Models</h4>
+                      <p class="skill-desc">Encapsulation, packet headers, layer functions.</p>
+                    </div>
+                    <span class="skill-status-badge status-foundational">Foundational</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">IPv4 Addressing & Subnetting</h4>
+                      <p class="skill-desc">CIDR notation, default gateways, subnet masks.</p>
+                    </div>
+                    <span class="skill-status-badge status-foundational">Foundational</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Linux Command-Line Basics</h4>
+                      <p class="skill-desc">Permissions, process monitoring, file utilities.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Network Diagnostics</h4>
+                      <p class="skill-desc">Using ping, traceroute, netstat, and nslookup.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 4: Web Development -->
+              <div class="skill-category-card">
+                <div class="skill-cat-header">
+                  <div class="skill-cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="skill-cat-title">Web Development & Security</h3>
+                    <p style="font-size: 0.75rem;">Semantic markup and defensive frontend controls.</p>
+                  </div>
+                </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Semantic HTML5 & Accessibility</h4>
+                      <p class="skill-desc">ARIA roles, keyboard nav, WCAG standards.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Modern Responsive CSS</h4>
+                      <p class="skill-desc">Flexbox, CSS Grid, media queries, mobile-first design.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">JavaScript Fundamentals</h4>
+                      <p class="skill-desc">DOM manipulation, event handlers, client validation.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Web Security Principles</h4>
+                      <p class="skill-desc">Understanding OWASP Top 10 vulnerabilities (XSS, SQLi).</p>
+                    </div>
+                    <span class="skill-status-badge status-learning">Learning</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 5: Professional Skills -->
+              <div class="skill-category-card">
+                <div class="skill-cat-header">
+                  <div class="skill-cat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="skill-cat-title">Professional Skills</h3>
+                    <p style="font-size: 0.75rem;">Collaboration and technical communication.</p>
+                  </div>
+                </div>
+                <div class="skill-items-list">
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Analytical Problem Solving</h4>
+                      <p class="skill-desc">Root-cause investigation and troubleshooting.</p>
+                    </div>
+                    <span class="skill-status-badge status-familiar">Familiar</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Technical Documentation</h4>
+                      <p class="skill-desc">Writing concise lab reports and security summaries.</p>
+                    </div>
+                    <span class="skill-status-badge status-practicing">Practicing</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Teamwork & Collaborative Learning</h4>
+                      <p class="skill-desc">Participating in university study cohorts.</p>
+                    </div>
+                    <span class="skill-status-badge status-familiar">Familiar</span>
+                  </div>
+                  <div class="skill-item-row">
+                    <div>
+                      <h4 class="skill-name">Microsoft Office Suite</h4>
+                      <p class="skill-desc">Formatting lab reports in Word, Excel, PowerPoint.</p>
+                    </div>
+                    <span class="skill-status-badge status-familiar">Familiar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Milestones Dashboard -->
+            <div class="milestones-box">
+              <div class="milestones-header">
+                <div>
+                  <span class="section-kicker">Active Milestones</span>
+                  <h2 style="font-size: 1.5rem; margin: 0.35rem 0;">Academic & Practical Learning Goals</h2>
+                  <p style="font-size: 0.85rem; color: var(--secondary-text);">Progress tracking based strictly on real milestones checked by the learner.</p>
+                </div>
+
+                <div class="progress-metric-box">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600;">
+                    <span>Goal Completion</span>
+                    <span id="goals-metric-text" class="tabular-nums font-mono" style="color: var(--royal-blue);">0 / 6 (0%)</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div id="goals-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Goals List -->
+              <div id="goals-list-container"></div>
+
+              <!-- Add Goal Form / Button -->
+              <div style="margin-top: 1.5rem;">
+                <form id="add-goal-form" style="display: none; padding: 1.25rem; border-radius: 0.75rem; background: var(--light-surface); border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem;">Add New Learning Milestone</h4>
+                  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <input type="text" id="new-goal-title" class="form-input" placeholder="Goal title (e.g. Set up Snort IDS on Linux)" required />
+                    <select id="new-goal-cat" class="form-input">
+                      <option value="Cybersecurity">Cybersecurity</option>
+                      <option value="Programming">Programming</option>
+                      <option value="Networking">Networking</option>
+                      <option value="Systems">Systems</option>
+                      <option value="Forensics">Forensics</option>
+                      <option value="Web Security">Web Security</option>
+                    </select>
+                  </div>
+                  <textarea id="new-goal-desc" class="form-textarea" rows="2" placeholder="Brief target description..." style="margin-bottom: 0.75rem;"></textarea>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button type="submit" class="btn-primary" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">Save Milestone</button>
+                    <button type="button" id="cancel-add-goal-btn" class="btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.8rem;">Cancel</button>
+                  </div>
+                </form>
+
+                <button type="button" id="toggle-add-goal-btn" class="btn-secondary" style="border-style: dashed; font-size: 0.8rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Add Custom Learning Goal</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- =======================================================================
+           VIEW 5: CONTACT PAGE
+           ======================================================================= -->
+      <div id="page-contact" class="page-view">
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <span class="section-kicker">Get In Touch</span>
+              <h1 class="section-title" style="font-size: 2.5rem;">Let's Connect.</h1>
+              <p class="section-subtitle">Have a question, project idea, learning opportunity, or cybersecurity discussion? I'd be happy to hear from you.</p>
+            </div>
+
+            <div class="contact-grid">
+              <!-- Left: Information Cards -->
+              <div>
+                <div class="highlight-card" style="display: block; padding: 1.75rem; margin-bottom: 1.5rem;">
+                  <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Channels</h3>
+                  <p style="font-size: 0.85rem; margin-bottom: 1.25rem;">Feel free to reach out directly via email or by completing the structured inquiry form.</p>
+
+                  <div class="contact-card">
+                    <div class="brand-icon" style="width: 2rem; height: 2rem; flex-shrink: 0;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text);">Direct Email</h4>
+                      <a href="mailto:cosmiqakok@gmail.com" style="font-size: 0.95rem; font-weight: 700; color: var(--royal-blue); text-decoration: underline;">cosmiqakok@gmail.com</a>
+                    </div>
+                  </div>
+
+                  <div class="contact-card">
+                    <div class="brand-icon" style="width: 2rem; height: 2rem; flex-shrink: 0;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text);">Academic Location</h4>
+                      <p style="font-size: 0.95rem; font-weight: 700; color: var(--main-text);">Juba, South Sudan</p>
+                      <p style="font-size: 0.75rem; color: var(--secondary-text);">University of Juba Campus</p>
+                    </div>
+                  </div>
+
+                  <div class="contact-card">
+                    <div class="brand-icon" style="width: 2rem; height: 2rem; flex-shrink: 0;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text);">Areas of Interest</h4>
+                      <p style="font-size: 0.85rem; color: var(--secondary-text);">Defensive cybersecurity, Python automation, networking fundamentals, student research collaborations, and internships.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="highlight-card" style="padding: 1rem 1.25rem; font-size: 0.8rem; display: flex; gap: 0.65rem; align-items: flex-start;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1769FF" stroke-width="2" style="flex-shrink: 0; margin-top: 0.1rem;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <p><strong>Privacy Notice:</strong> Contact information is used exclusively to respond to academic and professional correspondence. No unsolicited marketing or external data sharing occurs.</p>
+                </div>
+              </div>
+
+              <!-- Right: Validated Contact Form -->
+              <div>
+                <div class="highlight-card" style="padding: 2rem; display: block;">
+                  <h3 style="font-size: 1.25rem; margin-bottom: 0.35rem;">Send a Message</h3>
+                  <p style="font-size: 0.85rem; margin-bottom: 1.5rem;">Fill out the fields below. Inquiries are answered directly.</p>
+
+                  <!-- Mailto Dispatch Box -->
+                  <div id="contact-fallback-box" style="display: none; padding: 1.25rem; border-radius: 0.75rem; background-color: var(--light-surface); border: 1px solid var(--royal-blue); margin-bottom: 1.5rem;">
+                    <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.35rem;">Ready to dispatch via your email client</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 0.85rem;">Your message has been validated and pre-formatted. Click below to launch your email client with message contents addressed to <strong>cosmiqakok@gmail.com</strong>.</p>
+                    <a id="contact-fallback-link" href="#" class="btn-primary" style="font-size: 0.85rem;">
+                      <span>Open Pre-filled Email</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                  </div>
+
+                  <form id="contact-form" novalidate>
+                    <!-- Honeypot field -->
+                    <div style="display: none;" aria-hidden="true">
+                      <input type="text" id="contact-hp" tabindex="-1" autocomplete="off" />
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                      <div class="form-group">
+                        <label for="contact-name" class="form-label">Full Name <span style="color:#ef4444;">*</span></label>
+                        <input type="text" id="contact-name" class="form-input" placeholder="e.g. Deng Garang" />
+                        <span id="error-name" class="form-error"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="contact-email" class="form-label">Email Address <span style="color:#ef4444;">*</span></label>
+                        <input type="email" id="contact-email" class="form-input" placeholder="name@example.com" />
+                        <span id="error-email" class="form-error"></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="contact-subject" class="form-label">Subject <span style="color:#ef4444;">*</span></label>
+                      <input type="text" id="contact-subject" class="form-input" placeholder="e.g. Cybersecurity Research / Internship Opportunity" />
+                      <span id="error-subject" class="form-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="contact-message" class="form-label">Message <span style="color:#ef4444;">*</span></label>
+                      <textarea id="contact-message" class="form-textarea" rows="5" placeholder="Write your message here..."></textarea>
+                      <span id="error-message" class="form-error"></span>
+                    </div>
+
+                    <div style="margin-bottom: 1.25rem;">
+                      <label style="display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; font-size: 0.8rem; color: var(--secondary-text);">
+                        <input type="checkbox" id="contact-consent" style="margin-top: 0.2rem; accent-color: var(--royal-blue);" />
+                        <span>I agree to send this inquiry directly to Akok Mayol Akok for academic or professional communication.</span>
+                      </label>
+                      <span id="error-consent" class="form-error" style="display: block; margin-top: 0.25rem;"></span>
+                    </div>
+
+                    <button type="submit" id="contact-submit-btn" class="btn-primary" style="width: 100%;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                      <span>Send Message</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Call to Action Banner -->
+            <div class="banner-navy" style="margin-top: 3.5rem;">
+              <blockquote class="banner-quote">“Good things happen when curious minds connect.”</blockquote>
+              <p class="banner-sub">Whether for research discussions, student projects, or mentoring opportunities, my inbox is always open.</p>
+              <a href="mailto:cosmiqakok@gmail.com" class="btn-primary" style="background: #fff; color: #0B1F3A;">
+                <span>Send Me an Email</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1769FF" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- =======================================================================
+           VIEW 6: 404 NOT FOUND PAGE
+           ======================================================================= -->
+      <div id="page-404" class="page-view">
+        <section class="section" style="min-height: 60vh; display: flex; align-items: center;">
+          <div class="container" style="text-align: center; max-width: 32rem;">
+            <div class="brand-icon" style="width: 4rem; height: 4rem; margin: 0 auto 1.5rem;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <span class="badge-student" style="font-size: 0.8rem;">ERROR 404 · NOT FOUND</span>
+            <h1 class="section-title" style="margin: 0.5rem 0 1rem;">Page Does Not Exist</h1>
+            <p style="font-size: 0.95rem; margin-bottom: 2rem;">The requested security pathway could not be found or has been relocated.</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+              <a href="#/home" class="btn-primary">Return to Home</a>
+              <a href="#/projects" class="btn-secondary">Explore Projects</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- =========================================================================
+         PROJECT DETAIL MODAL
+         ========================================================================= -->
+    <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div>
+            <span id="modal-cat-status" class="project-meta-kicker" style="font-size: 0.75rem;"></span>
+            <h2 id="modal-title" style="font-size: 1.35rem; font-weight: 800; margin-top: 0.25rem;"></h2>
+          </div>
+          <button type="button" id="modal-close-btn" aria-label="Close modal" style="padding: 0.5rem; color: var(--secondary-text);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 0.4rem;">Overview</h4>
+            <p id="modal-summary" style="font-size: 0.9rem; line-height: 1.6;"></p>
+          </div>
+
+          <!-- Safety notice -->
+          <div style="padding: 1rem; border-radius: 0.5rem; background-color: var(--light-surface); border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--royal-blue); text-transform: uppercase; margin-bottom: 0.25rem;">Defensive & Authorized Practice</h4>
+            <p id="modal-safety" style="font-size: 0.8rem; line-height: 1.5;"></p>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 0.5rem;">Technologies & Tools</h4>
+            <div id="modal-tech" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 0.5rem;">Core Objectives</h4>
+            <ul id="modal-objectives" style="padding-left: 1.25rem;"></ul>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 0.5rem;">Learning Outcomes</h4>
+            <ul id="modal-outcomes" style="padding-left: 1.25rem;"></ul>
+          </div>
+
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 0.5rem;">Lessons Learned</h4>
+            <ul id="modal-lessons" style="padding-left: 1.25rem;"></ul>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <span style="font-size: 0.75rem; color: var(--secondary-text);">Student Demonstration · University of Juba</span>
+          <button type="button" id="modal-footer-close" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         SITE FOOTER
+         ========================================================================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Col 1: Bio -->
+          <div>
+            <a href="#/home" class="brand-link" style="margin-bottom: 0.75rem;">
+              <div class="brand-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 3L6 7v8c0 7.5 4.3 12.3 10 14 5.7-1.7 10-6.5 10-14V7L16 3z" />
+                </svg>
+              </div>
+              <span class="brand-text" style="color: #fff;">AKOK MAYOL</span>
+            </a>
+            <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6;">
+              Cybersecurity Student at the University of Juba. Passionate about protecting digital systems, defensive engineering, and contributing to resilient digital infrastructure in South Sudan.
+            </p>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div>
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="#/home" class="footer-link">Home</a></li>
+              <li><a href="#/about" class="footer-link">About Me</a></li>
+              <li><a href="#/projects" class="footer-link">Projects & Labs</a></li>
+              <li><a href="#/skills" class="footer-link">Skills & Goals</a></li>
+              <li><a href="#/contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Academic Hub -->
+          <div>
+            <h4 class="footer-col-title">Academic Hub</h4>
+            <ul class="footer-links">
+              <li>University of Juba</li>
+              <li>Department of Cybersecurity</li>
+              <li>Juba, South Sudan</li>
+              <li><a href="mailto:cosmiqakok@gmail.com" class="footer-link" style="color: var(--electric-blue);">cosmiqakok@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Responsible Security Ethics -->
+          <div>
+            <h4 class="footer-col-title">Responsible Practice</h4>
+            <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.6;">
+              All demonstrations, tools, and security investigations are strictly conducted in authorized lab environments and local loopback setups with an exclusive defensive and educational mandate.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="footer-year">2026</span> Akok Mayol Akok. All rights reserved. · University of Juba Cybersecurity</p>
+          <button type="button" id="back-to-top-btn" class="btn-secondary" style="background: rgba(255,255,255,0.06); color: #e2e8f0; border-color: #334155; font-size: 0.75rem; padding: 0.35rem 0.75rem;">
+            <span>Back to top</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Standalone Client Script (No build step) -->
+    <script src="script.js"></script>
   </body>
 </html>
-
